@@ -1,0 +1,177 @@
+Build Log
+=========
+Job:           3s-pipline
+Build:         #16
+Branch:        main
+Status:        Failed
+Started:       2026-06-19 10:08:24 UTC
+Duration:      79s
+Triggered by:  ahlem
+=========
+
+Started by user admin
+Obtained Jenkinsfile from git https://github.com/anwar-aissa-esprit/TIS
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/3s-pipline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: git
+using credential github-credentials
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/3s-pipline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/anwar-aissa-esprit/TIS # timeout=10
+Fetching upstream changes from https://github.com/anwar-aissa-esprit/TIS
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/anwar-aissa-esprit/TIS +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 7f171d2ea2cb485dc1555b3ee262e5678ce7dc73 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7f171d2ea2cb485dc1555b3ee262e5678ce7dc73 # timeout=10
+Commit message: "commit"testv3""
+ > git rev-list --no-walk 7f171d2ea2cb485dc1555b3ee262e5678ce7dc73 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withCredentials
+Masking supported pattern matches of $SONAR_TOKEN
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Clean Workspace)
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] git
+The recommended git tool is: git
+using credential github-credentials
+Cloning the remote Git repository
+Cloning repository https://github.com/anwar-aissa-esprit/TIS.git
+ > git init /var/jenkins_home/workspace/3s-pipline # timeout=10
+Fetching upstream changes from https://github.com/anwar-aissa-esprit/TIS.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/anwar-aissa-esprit/TIS.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ERROR: Error cloning remote repo 'origin'
+hudson.plugins.git.GitException: Command "git fetch --tags --force --progress -- https://github.com/anwar-aissa-esprit/TIS.git +refs/heads/*:refs/remotes/origin/*" returned status code 128:
+stdout: 
+stderr: remote: Enumerating objects: 26619, done.        
+remote: Counting objects:   1% (1/96)        remote: Counting objects:   2% (2/96)        remote: Counting objects:   3% (3/96)        remote: Counting objects:   4% (4/96)        remote: Counting objects:   5% (5/96)        remote: Counting objects:   6% (6/96)        remote: Counting objects:   7% (7/96)        remote: Counting objects:   8% (8/96)        remote: Counting objects:   9% (9/96)        remote: Counting objects:  10% (10/96)        remote: Counting objects:  11% (11/96)        remote: Counting objects:  12% (12/96)        remote: Counting objects:  13% (13/96)        remote: Counting objects:  14% (14/96)        remote: Counting objects:  15% (15/96)        remote: Counting objects:  16% (16/96)        remote: Counting objects:  17% (17/96)        remote: Counting objects:  18% (18/96)        remote: Counting objects:  19% (19/96)        remote: Counting objects:  20% (20/96)        remote: Counting objects:  21% (21/96)        remote: Counting objects:  22% (22/96)        remote: Counting objects:  23% (23/96)        remote: Counting objects:  25% (24/96)        remote: Counting objects:  26% (25/96)        remote: Counting objects:  27% (26/96)        remote: Counting objects:  28% (27/96)        remote: Counting objects:  29% (28/96)        remote: Counting objects:  30% (29/96)        remote: Counting objects:  31% (30/96)        remote: Counting objects:  32% (31/96)        remote: Counting objects:  33% (32/96)        remote: Counting objects:  34% (33/96)        remote: Counting objects:  35% (34/96)        remote: Counting objects:  36% (35/96)        remote: Counting objects:  37% (36/96)        remote: Counting objects:  38% (37/96)        remote: Counting objects:  39% (38/96)        remote: Counting objects:  40% (39/96)        remote: Counting objects:  41% (40/96)        remote: Counting objects:  42% (41/96)        remote: Counting objects:  43% (42/96)        remote: Counting objects:  44% (43/96)        remote: Counting objects:  45% (44/96)        remote: Counting objects:  46% (45/96)        remote: Counting objects:  47% (46/96)        remote: Counting objects:  48% (47/96)        remote: Counting objects:  50% (48/96)        remote: Counting objects:  51% (49/96)        remote: Counting objects:  52% (50/96)        remote: Counting objects:  53% (51/96)        remote: Counting objects:  54% (52/96)        remote: Counting objects:  55% (53/96)        remote: Counting objects:  56% (54/96)        remote: Counting objects:  57% (55/96)        remote: Counting objects:  58% (56/96)        remote: Counting objects:  59% (57/96)        remote: Counting objects:  60% (58/96)        remote: Counting objects:  61% (59/96)        remote: Counting objects:  62% (60/96)        remote: Counting objects:  63% (61/96)        remote: Counting objects:  64% (62/96)        remote: Counting objects:  65% (63/96)        remote: Counting objects:  66% (64/96)        remote: Counting objects:  67% (65/96)        remote: Counting objects:  68% (66/96)        remote: Counting objects:  69% (67/96)        remote: Counting objects:  70% (68/96)        remote: Counting objects:  71% (69/96)        remote: Counting objects:  72% (70/96)        remote: Counting objects:  73% (71/96)        remote: Counting objects:  75% (72/96)        remote: Counting objects:  76% (73/96)        remote: Counting objects:  77% (74/96)        remote: Counting objects:  78% (75/96)        remote: Counting objects:  79% (76/96)        remote: Counting objects:  80% (77/96)        remote: Counting objects:  81% (78/96)        remote: Counting objects:  82% (79/96)        remote: Counting objects:  83% (80/96)        remote: Counting objects:  84% (81/96)        remote: Counting objects:  85% (82/96)        remote: Counting objects:  86% (83/96)        remote: Counting objects:  87% (84/96)        remote: Counting objects:  88% (85/96)        remote: Counting objects:  89% (86/96)        remote: Counting objects:  90% (87/96)        remote: Counting objects:  91% (88/96)        remote: Counting objects:  92% (89/96)        remote: Counting objects:  93% (90/96)        remote: Counting objects:  94% (91/96)        remote: Counting objects:  95% (92/96)        remote: Counting objects:  96% (93/96)        remote: Counting objects:  97% (94/96)        remote: Counting objects:  98% (95/96)        remote: Counting objects: 100% (96/96)        remote: Counting objects: 100% (96/96), done.        
+remote: Compressing objects:   1% (1/80)        remote: Compressing objects:   2% (2/80)        remote: Compressing objects:   3% (3/80)        remote: Compressing objects:   5% (4/80)        remote: Compressing objects:   6% (5/80)        remote: Compressing objects:   7% (6/80)        remote: Compressing objects:   8% (7/80)        remote: Compressing objects:  10% (8/80)        remote: Compressing objects:  11% (9/80)        remote: Compressing objects:  12% (10/80)        remote: Compressing objects:  13% (11/80)        remote: Compressing objects:  15% (12/80)        remote: Compressing objects:  16% (13/80)        remote: Compressing objects:  17% (14/80)        remote: Compressing objects:  18% (15/80)        remote: Compressing objects:  20% (16/80)        remote: Compressing objects:  21% (17/80)        remote: Compressing objects:  22% (18/80)        remote: Compressing objects:  23% (19/80)        remote: Compressing objects:  25% (20/80)        remote: Compressing objects:  26% (21/80)        remote: Compressing objects:  27% (22/80)        remote: Compressing objects:  28% (23/80)        remote: Compressing objects:  30% (24/80)        remote: Compressing objects:  31% (25/80)        remote: Compressing objects:  32% (26/80)        remote: Compressing objects:  33% (27/80)        remote: Compressing objects:  35% (28/80)        remote: Compressing objects:  36% (29/80)        remote: Compressing objects:  37% (30/80)        remote: Compressing objects:  38% (31/80)        remote: Compressing objects:  40% (32/80)        remote: Compressing objects:  41% (33/80)        remote: Compressing objects:  42% (34/80)        remote: Compressing objects:  43% (35/80)        remote: Compressing objects:  45% (36/80)        remote: Compressing objects:  46% (37/80)        remote: Compressing objects:  47% (38/80)        remote: Compressing objects:  48% (39/80)        remote: Compressing objects:  50% (40/80)        remote: Compressing objects:  51% (41/80)        remote: Compressing objects:  52% (42/80)        remote: Compressing objects:  53% (43/80)        remote: Compressing objects:  55% (44/80)        remote: Compressing objects:  56% (45/80)        remote: Compressing objects:  57% (46/80)        remote: Compressing objects:  58% (47/80)        remote: Compressing objects:  60% (48/80)        remote: Compressing objects:  61% (49/80)        remote: Compressing objects:  62% (50/80)        remote: Compressing objects:  63% (51/80)        remote: Compressing objects:  65% (52/80)        remote: Compressing objects:  66% (53/80)        remote: Compressing objects:  67% (54/80)        remote: Compressing objects:  68% (55/80)        remote: Compressing objects:  70% (56/80)        remote: Compressing objects:  71% (57/80)        remote: Compressing objects:  72% (58/80)        remote: Compressing objects:  73% (59/80)        remote: Compressing objects:  75% (60/80)        remote: Compressing objects:  76% (61/80)        remote: Compressing objects:  77% (62/80)        remote: Compressing objects:  78% (63/80)        remote: Compressing objects:  80% (64/80)        remote: Compressing objects:  81% (65/80)        remote: Compressing objects:  82% (66/80)        remote: Compressing objects:  83% (67/80)        remote: Compressing objects:  85% (68/80)        remote: Compressing objects:  86% (69/80)        remote: Compressing objects:  87% (70/80)        remote: Compressing objects:  88% (71/80)        remote: Compressing objects:  90% (72/80)        remote: Compressing objects:  91% (73/80)        remote: Compressing objects:  92% (74/80)        remote: Compressing objects:  93% (75/80)        remote: Compressing objects:  95% (76/80)        remote: Compressing objects:  96% (77/80)        remote: Compressing objects:  97% (78/80)        remote: Compressing objects:  98% (79/80)        remote: Compressing objects: 100% (80/80)        remote: Compressing objects: 100% (80/80), done.        
+Receiving objects:   0% (1/26619)Receiving objects:   0% (52/26619), 140.00 KiB | 127.00 KiB/sReceiving objects:   0% (75/26619), 332.00 KiB | 141.00 KiB/sReceiving objects:   0% (142/26619), 564.00 KiB | 195.00 KiB/sReceiving objects:   0% (144/26619), 876.00 KiB | 185.00 KiB/serror: RPC failed; curl 56 Recv failure: Connection reset by peer
+error: 3898 bytes of body are still expected
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2848)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandWithCredentials(CliGitAPIImpl.java:2189)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl$1.execute(CliGitAPIImpl.java:638)
+	at PluginClassLoader for git-client//org.jenkinsci.plugins.gitclient.CliGitAPIImpl$2.execute(CliGitAPIImpl.java:880)
+	at PluginClassLoader for git//hudson.plugins.git.GitSCM.retrieveChanges(GitSCM.java:1220)
+	at PluginClassLoader for git//hudson.plugins.git.GitSCM._checkout(GitSCM.java:1310)
+	at PluginClassLoader for git//hudson.plugins.git.GitSCM.checkout(GitSCM.java:1277)
+	at PluginClassLoader for workflow-scm-step//org.jenkinsci.plugins.workflow.steps.scm.SCMStep.checkout(SCMStep.java:136)
+	at PluginClassLoader for workflow-scm-step//org.jenkinsci.plugins.workflow.steps.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:101)
+	at PluginClassLoader for workflow-scm-step//org.jenkinsci.plugins.workflow.steps.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:88)
+	at PluginClassLoader for workflow-step-api//org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution.lambda$start$0(SynchronousNonBlockingStepExecution.java:49)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+ERROR: Error cloning remote repo 'origin'
+ERROR: Maximum checkout retry attempts reached, aborting
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (SonarQube - Frontend)
+Stage "SonarQube - Frontend" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (SonarQube - Backend)
+Stage "SonarQube - Backend" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Quality Gate)
+Stage "Quality Gate" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Image Backend)
+Stage "Build Image Backend" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Image Frontend)
+Stage "Build Image Frontend" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Trivy Scan Backend)
+Stage "Trivy Scan Backend" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Trivy Scan Frontend)
+Stage "Trivy Scan Frontend" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push Backend vers Nexus)
+Stage "Push Backend vers Nexus" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push Frontend vers Nexus)
+Stage "Push Frontend vers Nexus" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Update GitOps Repo)
+Stage "Update GitOps Repo" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] sh
++ rm -rf tis-gitops-update
+[Pipeline] echo
+❌ Pipeline FAILURE — Vérifier les logs ci-dessus
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: Error cloning remote repo 'origin'
+Finished: FAILURE
